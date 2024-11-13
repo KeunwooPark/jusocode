@@ -7,7 +7,7 @@
 1. 패키지를 설치 합니다.
 
 ```sh
-> pip install requirements.txt
+> pip install -r requirements.txt
 ```
 
 2. `secrets.txt` 파일을 다음과 같이 구성 합니다.
