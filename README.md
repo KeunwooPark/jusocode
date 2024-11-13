@@ -32,7 +32,7 @@ naver_api_key={naver_api_key}
 > python juso_code.py
 ```
 
-5. `output.txt`를 확인 합니다.
+5. `output.txt`를 확인 합니다. 구분자는 세미콜론 (`;`) 입니다.
 
 ## 동작 방식
 

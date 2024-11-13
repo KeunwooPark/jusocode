@@ -140,18 +140,15 @@ def main(secrets):
 
     addresses = [address.strip() for address in addresses]
 
-    jusos = []
-    count = 0
-    total = len(addresses)
-    for address in addresses:
-        count += 1
-        print("searching for {} ({}/{})".format(address, count, total))
-        juso = search_juso(address, secrets)
-        jusos.append(juso)
-
     with open("output.txt", "w") as f:
-        f.write("query,code_address,b_code,h_code\n")
-        for juso in jusos:
+        f.write("query;code_address;b_code;h_code\n")
+
+        count = 0
+        total = len(addresses)
+        for address in addresses:
+            count += 1
+            print("searching for {} ({}/{})".format(address, count, total))
+            juso = search_juso(address, secrets)
             f.write(
                 "{};{};{};{}\n".format(
                     juso["query"], juso["code_address"], juso["b_code"], juso["h_code"]
