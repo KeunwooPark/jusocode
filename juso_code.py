@@ -96,19 +96,15 @@ def search_juso(query, secrets):
             query, secrets["naver_api_client_id"], secrets["naver_api_key"]
         )
 
+    valid_address = None
     if kakao_result is None and naver_result is None:
-        return {
-            "query": query,
-            "code_address": "",
-            "b_code": "",
-            "h_code": "",
-        }
+        valid_address = query
+    else:
+        valid_result = kakao_result
+        if naver_result is not None:
+            valid_result = convert_naver_to_kakao(naver_result)
 
-    valid_result = kakao_result
-    if naver_result is not None:
-        valid_result = convert_naver_to_kakao(naver_result)
-
-    valid_address = valid_result["road_address_name"]
+        valid_address = valid_result["road_address_name"]
 
     exact_result = search_exact_juso(valid_address, secrets["kakao_api_key"])
 
